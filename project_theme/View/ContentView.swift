@@ -9,34 +9,34 @@ import SwiftUI
 import CoreData
 
 struct ContentView: View {
+    //MY STUFF
+    func toggleSidebar() {
+        #if os(iOS)
+        #else
+        NSApp.keyWindow?.firstResponder?.tryToPerform(#selector(NSSplitViewController.toggleSidebar(_:)), with: nil)
+        #endif
+    }
+    //MY STUFF
+    
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
         animation: .default)
     private var items: FetchedResults<Item>
-
+    
     var body: some View {
         NavigationView {
-            List {
-                ForEach(items) { item in
-                    NavigationLink {
-                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-                    } label: {
-                        Text(item.timestamp!, formatter: itemFormatter)
+            Sidebar()
+                .toolbar {
+                    Button(action: toggleSidebar) {
+                        Label("hide", systemImage: "sidebar.left")
                     }
                 }
-                .onDelete(perform: deleteItems)
-            }
-            .toolbar {
-                ToolbarItem {
-                    Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
-                    }
-                }
-            }
-            Text("Select an item")
+                .frame(minWidth: 150)
+            ThemeView()
         }
+
     }
 
     private func addItem() {
@@ -83,3 +83,57 @@ struct ContentView_Previews: PreviewProvider {
         ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }
 }
+
+struct Sidebar: View {
+    var body: some View {
+        List{
+            NavigationLink(destination: ThemeView()) {
+                Label("Theme", systemImage: "sparkles")
+            }
+            NavigationLink(destination: GenericPageView()) {
+                Label("Writing", systemImage: "book")
+            }
+            NavigationLink(destination: GoalPageView()) {
+                Label("Goals", systemImage: "flag.fill")
+            }
+            NavigationLink(destination: GoalPageView()) {
+                Label("Ideas", systemImage: "circle.hexagonpath")
+            }
+        }
+    }
+}
+
+
+
+struct GenericPageView: View {
+    var body: some View {
+        Text("Generic Pages").navigationTitle("Generic Pages")
+    }
+}
+
+
+struct GoalPageView: View {
+    var body: some View {
+        Text("Goal Pages").navigationTitle("Goal Pages")
+    }
+}
+//        NavigationView {
+//            List {
+//                ForEach(items) { item in
+//                    NavigationLink {
+//                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+//                    } label: {
+//                        Text(item.timestamp!, formatter: itemFormatter)
+//                    }
+//                }
+//                .onDelete(perform: deleteItems)
+//            }
+//            .toolbar {
+//                ToolbarItem {
+//                    Button(action: addItem) {
+//                        Label("Add Item", systemImage: "plus")
+//                    }
+//                }
+//            }
+//            Text("Select an item")
+//        }

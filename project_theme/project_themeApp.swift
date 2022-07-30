@@ -15,6 +15,13 @@ struct project_themeApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .onAppear {
+                    NSWindow.allowsAutomaticWindowTabbing = false
+                }
+                .frame(minWidth: 605)
+            
+        }.commands {
+            SidebarCommands()
         }
     }
 }

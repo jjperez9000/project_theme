@@ -13,6 +13,7 @@
 		496439F02894974100FD962A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 496439EF2894974100FD962A /* Preview Assets.xcassets */; };
 		496439F22894974100FD962A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496439F12894974100FD962A /* Persistence.swift */; };
 		496439F52894974100FD962A /* project_theme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 496439F32894974100FD962A /* project_theme.xcdatamodeld */; };
+		496439FD289497F100FD962A /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496439FC289497F100FD962A /* ThemeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		496439F12894974100FD962A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		496439F42894974100FD962A /* project_theme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = project_theme.xcdatamodel; sourceTree = "<group>"; };
 		496439F62894974100FD962A /* project_theme.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = project_theme.entitlements; sourceTree = "<group>"; };
+		496439FC289497F100FD962A /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		49417CC92895CF76007EA08F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				496439EA2894974100FD962A /* ContentView.swift */,
+				496439FC289497F100FD962A /* ThemeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		49417CCA2895CF91007EA08F /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		496439DC2894974100FD962A = {
 			isa = PBXGroup;
 			children = (
@@ -56,8 +74,9 @@
 		496439E72894974100FD962A /* project_theme */ = {
 			isa = PBXGroup;
 			children = (
+				49417CCA2895CF91007EA08F /* Model */,
+				49417CC92895CF76007EA08F /* View */,
 				496439E82894974100FD962A /* project_themeApp.swift */,
-				496439EA2894974100FD962A /* ContentView.swift */,
 				496439EC2894974100FD962A /* Assets.xcassets */,
 				496439F12894974100FD962A /* Persistence.swift */,
 				496439F62894974100FD962A /* project_theme.entitlements */,
@@ -148,6 +167,7 @@
 				496439F22894974100FD962A /* Persistence.swift in Sources */,
 				496439EB2894974100FD962A /* ContentView.swift in Sources */,
 				496439E92894974100FD962A /* project_themeApp.swift in Sources */,
+				496439FD289497F100FD962A /* ThemeView.swift in Sources */,
 				496439F52894974100FD962A /* project_theme.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
