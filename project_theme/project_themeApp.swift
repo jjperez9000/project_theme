@@ -9,12 +9,10 @@ import SwiftUI
 
 @main
 struct project_themeApp: App {
-    let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.managedObjectContext, persistenceController.container.viewContext)
                 .onAppear {
                     NSWindow.allowsAutomaticWindowTabbing = false
                 }
