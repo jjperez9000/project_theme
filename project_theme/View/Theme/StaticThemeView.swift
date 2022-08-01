@@ -9,30 +9,11 @@ import SwiftUI
 
 struct StaticThemeView: View {
     
-    
-    
-    //    var theme = Theme(
-    //        theme: "creation",
-    //        description: "Contribute to the world, don't consume from the worldContribute to the world, don't consume from the worldContribute to the world, don't consume from the worldContribute to the world, don't consume from the worldContribute to the world, don't consume from the world",
-    //        outcomes: [
-    //            "Be less lazy",
-    //            "Live more like Larry",
-    //            "pogpogpogpog",
-    //        ])
-    
-    @ObservedObject var themeVM = ThemeViewModel()
+    @EnvironmentObject var themeVM: Store
     
     var body: some View {
         VStack {
-            Button("save :)", action: saveTheme)
-            Button("changeshit", action: updateThing)
-            Text(verbatim:"THE")
-                .font(.title)
-            + Text("ME")
-                .font(.title)
-                .bold()
-            + Text("SYSTEM")
-                .font(.title)
+            LogoView()
             Text("theme")
                 .font(.callout)
                 .padding(.top)
@@ -53,9 +34,7 @@ struct StaticThemeView: View {
             Text("ideal outcomes")
                 .font(.callout)
                 .padding(.top)
-            
-            
-            
+
             ForEach(themeVM.theme.outcomes) { outcome in
                 Text(outcome)
                     .frame(width: 540)
@@ -67,14 +46,6 @@ struct StaticThemeView: View {
         }
         
     }
-    private func saveTheme() {
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(themeVM.theme), forKey:"theme")
-    }
-    private func updateThing() {
-        themeVM.theme.theme = "diff"
-        themeVM.save()
-    }
-    
 }
 
 struct StaticThemeView_Previews: PreviewProvider {

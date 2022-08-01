@@ -7,14 +7,9 @@
 
 import Foundation
 
-struct Theme: Codable {
-    var theme: String
-    var description: String
-    var outcomes: [String]
-}
-
-class ThemeViewModel: ObservableObject {
-    @Published var theme: Theme = .placeholder
+class Store: ObservableObject {
+    @Published var theme: Theme = .themePlaceholder
+    @Published var pages: [Page] = []
     
     private var applicationSupportDirectory: URL {
         FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
@@ -31,20 +26,33 @@ class ThemeViewModel: ObservableObject {
             return try decoder.decode(Theme.self, from: storeFileData)
         } catch {
             print(error)
-            return .placeholder
+            return .themePlaceholder
+        }
+    }
+    func loadPages(from storeFileData: Data) -> [Page] {
+        do {
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .iso8601
+            return try decoder.decode([Page].self, from: storeFileData)
+        } catch {
+            print(error)
+            return []
         }
     }
     
     init() {
         if let data = FileManager.default.contents(atPath: databaseFileUrl.path) {
             theme = loadTheme(from: data)
+            pages = loadPages(from: data)
         } else {
             if let bundledDatabaseUrl = Bundle.main.url(forResource: "database", withExtension: "json") {
                 if let data = FileManager.default.contents(atPath: bundledDatabaseUrl.path) {
                     theme = loadTheme(from: data)
+                    pages = loadPages(from: data)
                 }
             } else {
-                theme = .placeholder
+                theme = .themePlaceholder
+                pages = []
             }
         }
     }
@@ -65,15 +73,10 @@ class ThemeViewModel: ObservableObject {
     }
 }
 
-extension Theme {
-    static var placeholder: Self {
-        Theme(
-            theme: "creation",
-            description: "Contribute to the world, don't consume from the worldContribute to the world, don't consume from the worldContribute to the world, don't consume from the worldContribute to the world, don't consume from the worldContribute to the world, don't consume from the world",
-            outcomes: [
-                "Be less lazy",
-                "Live more like Larry",
-                "pogpogpogpog",
-            ])
+
+extension String: Identifiable {
+    public typealias ID = Int
+    public var id: Int {
+        return hash
     }
 }

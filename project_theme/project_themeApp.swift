@@ -17,6 +17,7 @@ struct project_themeApp: App {
                     NSWindow.allowsAutomaticWindowTabbing = false
                 }
                 .frame(minWidth: 605)
+                .environmentObject(Store())
             
         }.commands {
             SidebarCommands()

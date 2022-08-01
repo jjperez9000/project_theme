@@ -42,7 +42,7 @@ struct Sidebar: View {
             NavigationLink(destination: ThemeView()) {
                 Label("Theme", systemImage: "sparkles")
             }
-            NavigationLink(destination: GenericPageView()) {
+            NavigationLink(destination: WritingView()) {
                 Label("Writing", systemImage: "book")
             }
             NavigationLink(destination: GoalPageView()) {

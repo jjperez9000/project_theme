@@ -8,16 +8,10 @@
 import SwiftUI
 import CoreData
 
-extension String: Identifiable {
-    public typealias ID = Int
-    public var id: Int {
-        return hash
-    }
-}
-
 struct ThemeView: View {
+    
     @State var locked: Bool = true
-   
+    @EnvironmentObject var themeVM: Store
     
     var body: some View {
         if (locked) {
@@ -33,10 +27,13 @@ struct ThemeView: View {
                     Label("lock", systemImage: "lock.open")
                 }
             }
-            
         }
     }
     private func toggleLock() {
+        if (locked == false) {
+            themeVM.save()
+            UserDefaults.standard.set(try? PropertyListEncoder().encode(themeVM.theme), forKey:"theme")
+        }
         locked.toggle()
     }
    
@@ -48,5 +45,17 @@ struct ThemeView_Previews: PreviewProvider {
         Group {
             ThemeView()
         }
+    }
+}
+
+struct LogoView: View {
+    var body: some View {
+        Text(verbatim:"THE")
+            .font(.title)
+        + Text("ME")
+            .font(.title)
+            .bold()
+        + Text("SYSTEM")
+            .font(.title)
     }
 }
