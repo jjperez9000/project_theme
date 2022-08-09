@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Page: Identifiable, Codable {
+struct GenericPage: Identifiable, Codable {
     var id: UUID = UUID()
     var date: Date
     var pageNum: Int
@@ -17,9 +17,9 @@ struct Page: Identifiable, Codable {
     var body: String
     var footer: String
 }
-extension Page {
+extension GenericPage {
     static var pagePlaceholder: Self {
-        Page(
+        GenericPage(
             date: Date.now,
             pageNum: 0,
             header: "header",

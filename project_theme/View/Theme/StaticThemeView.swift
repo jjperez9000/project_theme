@@ -34,7 +34,6 @@ struct StaticThemeView: View {
             Text("ideal outcomes")
                 .font(.callout)
                 .padding(.top)
-
             ForEach(themeVM.theme.outcomes) { outcome in
                 Text(outcome)
                     .frame(width: 540)
@@ -42,7 +41,6 @@ struct StaticThemeView: View {
                     .border(.black)
                     .lineLimit(3)
             }
-            
         }
         
     }

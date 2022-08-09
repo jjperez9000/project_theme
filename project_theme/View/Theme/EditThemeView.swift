@@ -27,7 +27,7 @@ struct EditThemeView: View {
                 Text("description")
                     .font(.callout)
                     .padding(.top)
-                TextField("describe ur theme uwu", text: $themeVM.theme.description)
+                TextField("describe ur theme uwu", text: $themeVM.theme.description, axis: .vertical)
                     .font(.title2)
                     .frame(width: 540)
                     .padding(20.0)

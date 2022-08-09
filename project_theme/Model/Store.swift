@@ -9,7 +9,8 @@ import Foundation
 
 class Store: ObservableObject {
     @Published var theme: Theme = .themePlaceholder
-    @Published var pages: [Page] = []
+    @Published var pages: [GenericPage] = []
+    @Published var goals: [GoalPage] = []
     
     private var applicationSupportDirectory: URL {
         FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first!
@@ -29,11 +30,11 @@ class Store: ObservableObject {
             return .themePlaceholder
         }
     }
-    func loadPages(from storeFileData: Data) -> [Page] {
+    func loadPages(from storeFileData: Data) -> [GenericPage] {
         do {
             let decoder = JSONDecoder()
             decoder.dateDecodingStrategy = .iso8601
-            return try decoder.decode([Page].self, from: storeFileData)
+            return try decoder.decode([GenericPage].self, from: storeFileData)
         } catch {
             print(error)
             return []
@@ -57,12 +58,22 @@ class Store: ObservableObject {
         }
     }
     
+    
     func save() {
         let encoder = JSONEncoder()
         encoder.dateEncodingStrategy = .iso8601
         encoder.outputFormatting = .prettyPrinted
         do {
             let data = try encoder.encode(theme)
+            if FileManager.default.fileExists(atPath: databaseFileUrl.path) {
+                try FileManager.default.removeItem(at: databaseFileUrl)
+            }
+            try data.write(to: databaseFileUrl)
+        } catch {
+            //..
+        }
+        do {
+            let data = try encoder.encode(pages)
             if FileManager.default.fileExists(atPath: databaseFileUrl.path) {
                 try FileManager.default.removeItem(at: databaseFileUrl)
             }

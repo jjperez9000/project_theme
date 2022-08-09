@@ -11,20 +11,24 @@ struct WritingView: View {
     @EnvironmentObject var database: Store
     
     var body: some View {
-        List {
-            ForEach(database.pages) { page in
-                NavigationLink(page.top1, destination: PageEditView())
+        NavigationView {
+            List {
+                ForEach(database.pages) { page in
+                    NavigationLink(page.date.formatted(date: .numeric, time: .omitted) + "  |  " + page.header, destination: PageEditView(myID: page.id))
+                }.onDelete(perform: removeRows)
             }
-        }.toolbar {
-            Button(action: newPage) {
-                Label("new page", systemImage: "leaf")
-            }
+            Text("No Page Selected")
         }
-        
+        .toolbar {
+            Button("new page", action: newPage)
+        }
     }
-    
     private func newPage() {
         database.pages.append(.pagePlaceholder)
+    }
+    private func removeRows(at offsets: IndexSet) {
+        database.pages.remove(atOffsets: offsets)
+        database.save()
     }
 }
 

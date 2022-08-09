@@ -9,7 +9,6 @@ import SwiftUI
 
 @main
 struct project_themeApp: App {
-
     var body: some Scene {
         WindowGroup {
             ContentView()

@@ -19,9 +19,6 @@ struct ContentView: View {
     
     
     var body: some View {
-        
-        
-    
         NavigationView {
             Sidebar()
                 .toolbar {
@@ -45,28 +42,13 @@ struct Sidebar: View {
             NavigationLink(destination: WritingView()) {
                 Label("Writing", systemImage: "book")
             }
-            NavigationLink(destination: GoalPageView()) {
+            NavigationLink(destination: GoalView()) {
                 Label("Goals", systemImage: "flag.fill")
             }
             NavigationLink(destination: IdeaPageView()) {
                 Label("Ideas", systemImage: "circle.hexagonpath")
             }
         }
-    }
-}
-
-
-
-struct GenericPageView: View {
-    var body: some View {
-        Text("Generic Pages").navigationTitle("Generic Pages")
-    }
-}
-
-
-struct GoalPageView: View {
-    var body: some View {
-        Text("Goal Pages").navigationTitle("Goal Pages")
     }
 }
 
