@@ -9,6 +9,8 @@ import SwiftUI
 
 @main
 struct project_themeApp: App {
+    let persistenceController = PersistenceController.shared
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
@@ -17,6 +19,7 @@ struct project_themeApp: App {
                 }
                 .frame(minWidth: 605)
                 .environmentObject(Store())
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
             
         }.commands {
             SidebarCommands()

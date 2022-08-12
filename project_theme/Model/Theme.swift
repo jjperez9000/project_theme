@@ -17,11 +17,19 @@ extension Theme {
     static var themePlaceholder: Self {
         Theme(
             theme: "creation",
-            description: "Contribute to the world, don't consume from the worldContribute to the world, don't consume from the worldContribute to the world, don't consume from the worldContribute to the world, don't consume from the worldContribute to the world, don't consume from the world",
+            description: "asdf",
             outcomes: [
                 "Be less lazy",
                 "Live more like Larry",
                 "pogpogpogpog",
             ])
+    }
+}
+
+// this is here so that we can print the outcomes section
+extension String: Identifiable {
+    public typealias ID = Int
+    public var id: Int {
+        return hash
     }
 }

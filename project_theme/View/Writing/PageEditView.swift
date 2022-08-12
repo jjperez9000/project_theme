@@ -27,14 +27,14 @@ struct PageEditView: View {
     var body: some View {
         VStack {
             HStack {
-                
                 Text("DATE          " + database.pages.filter({$0.id == myID}).first!.date.formatted(date: .numeric, time: .omitted)
                     + "        ")
                     .padding(.leading, 5)
                 
                 Divider().background(.black)
                 TextField("title", text: $database.pages.filter({$0.id == myID}).first!.header )
-                    .onChange(of: $database.pages.filter({$0.id == myID}).first!.header.wrappedValue) {_ in
+                    .onChange(
+                        of: $database.pages.filter({$0.id == myID}).first!.header.wrappedValue) {_ in
                         database.save()
                         UserDefaults.standard.set(try? PropertyListEncoder().encode(database.pages), forKey:"pages")
                     }
@@ -94,7 +94,7 @@ struct PageEditView: View {
         
     }
     private func saveFiles() {
-        database.save()
-        UserDefaults.standard.set(try? PropertyListEncoder().encode(database.pages), forKey:"pages")
+//        database.save()
+//        UserDefaults.standard.set(try? PropertyListEncoder().encode(database.pages), forKey:"pages")
     }
 }

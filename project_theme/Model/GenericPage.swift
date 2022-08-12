@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct GenericPage: Identifiable, Codable {
+struct GenericPage: Identifiable, Codable, Hashable {
     var id: UUID = UUID()
     var date: Date
     var pageNum: Int
