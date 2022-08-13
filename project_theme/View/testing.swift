@@ -6,6 +6,7 @@
 ////
 //import SwiftUI
 //
+//
 //enum HomeDestination: String, CaseIterable, Hashable {
 //    case hot, best, trending, new, top, rising
 //}

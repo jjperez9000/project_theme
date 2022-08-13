@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct NewWritingPageView: View {
+struct WritingPageView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var page: WritingPage
     

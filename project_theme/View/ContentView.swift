@@ -9,14 +9,7 @@
 
 import SwiftUI
 
-struct Post: Identifiable, Hashable {
-    let id = UUID()
-    let title = "A post title"
-    let preview = "Some wall of text to represent the preview of a post that nobody will read if the title is not a clickbait"
-}
-
 enum Destination: Hashable {
-    case theme
     case writing
     case goal
     case idea
@@ -26,93 +19,69 @@ enum Destination: Hashable {
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var database: Store
-   
+    @State private var sidebarDestination: Destination = .writing
+    @State private var navVisibility: NavigationSplitViewVisibility = .all
     
+    // writing page data
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \WritingPage.date, ascending: true)],
         animation: .default)
-    private var pages: FetchedResults<WritingPage>
-    @State private var selectedPageId: WritingPage.ID?
-    @State private var sidebarDestination: Destination = .theme
-    @State private var navVisibility: NavigationSplitViewVisibility = .all
-    private var selectedPage: WritingPage? {
-        guard let selectedPage = pages.filter({$0.id == selectedPageId}).first else {
+    private var writingPages: FetchedResults<WritingPage>
+    @State private var selectedWritingPageId: WritingPage.ID?
+    private var selectedWritingPage: WritingPage? {
+        guard let selectedPage = writingPages.filter({$0.id == selectedWritingPageId}).first else {
             return nil
         }
         return selectedPage
     }
     
+    // idea page data
+    @FetchRequest(
+        sortDescriptors: [NSSortDescriptor(keyPath: \IdeaPage.date, ascending: true)],
+        animation: .default)
+    private var ideaPages: FetchedResults<IdeaPage>
+    @State private var selectedIdeaPageId: IdeaPage.ID?
+    private var selectedIdeaPage: IdeaPage? {
+        guard let selectedPage = ideaPages.filter({$0.id == selectedIdeaPageId}).first else {
+            return nil
+        }
+        return selectedPage
+    }
+
     var body: some View {
         NavigationSplitView(columnVisibility: $navVisibility) {
             SidebarView(destination: $sidebarDestination)
         } content: {
-            List(selection: $selectedPageId) {
-                ForEach(pages) {page in
-                    Text(page.date!.formatted(date: .numeric, time: .omitted) + "  |  " + page.header! )
-                        .contextMenu {
-                            Button("delete page") {
-                                if pages.firstIndex(of: page) != nil {
-                                    viewContext.delete(page)
-                                }
-                            }
-                        }
-                }
-                .onDelete(perform: deletePages)
+            switch sidebarDestination {
+            case .writing:
+                WritingMenuView(selectedWritingPageId: $selectedWritingPageId)
+            case .goal:
+                GoalMenuView()
+            case .idea:
+                IdeaMenuView(selectedIdeaPageId: $selectedIdeaPageId)
             }
         } detail: {
-            if let page = selectedPage {
-                NewWritingPageView(page: page)
-            } else {
-                ThemeView()
-            }
-        }.toolbar {
-            ToolbarItem {
-                Button(action: addPage) {
-                    Label("Add Item", systemImage: "square.and.pencil")
+            switch sidebarDestination {
+            case .goal:
+                GoalPageView()
+            case .idea:
+                if let page = selectedIdeaPage {
+                    IdeaPageView(page: page)
+                } else {
+                    ThemeView()
+                }
+            default:
+                if let page = selectedWritingPage {
+                    WritingPageView(page: page)
+                } else {
+                    ThemeView()
                 }
             }
+
         }
-        
-        
     }
+
     
-    private func addPage() {
-        withAnimation {
-            let newPage = WritingPage(context: viewContext)
-            newPage.id = UUID()
-            newPage.date = Date()
-            newPage.header = "new page"
-            newPage.body = ""
-            newPage.top1 = ""
-            newPage.top2 = ""
-            newPage.footer = ""
-            do  {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-
-    private func deletePages(offsets: IndexSet) {
-        withAnimation {
-            offsets.map {pages[$0]}.forEach(viewContext.delete)
-//            pages.forEach(viewContext.delete) // delete all pages
-            do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
-    }
 }
 
 
@@ -120,9 +89,6 @@ struct SidebarView: View {
     @Binding var destination: Destination
     var body: some View {
         List(selection: $destination) {
-            NavigationLink(value: Destination.theme) {
-                Label("theme", systemImage: "sparkles")
-            }
             NavigationLink(value: Destination.writing) {
                 Label("writing", systemImage: "book")
             }
@@ -133,11 +99,5 @@ struct SidebarView: View {
                 Label("idea", systemImage: "circle.hexagonpath")
             }
         }
-    }
-}
-
-struct IdeaPageView: View {
-    var body: some View {
-        Text("Idea Pages").navigationTitle("Idea Pages")
     }
 }

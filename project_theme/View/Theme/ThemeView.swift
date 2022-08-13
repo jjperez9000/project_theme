@@ -31,7 +31,6 @@ struct ThemeView: View {
     }
     private func toggleLock() {
         if (!locked) {
-            print("saved?")
             themeVM.save()
             UserDefaults.standard.set(try? PropertyListEncoder().encode(themeVM.theme), forKey:"theme")
         }

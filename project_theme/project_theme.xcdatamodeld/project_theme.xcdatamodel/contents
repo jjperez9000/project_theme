@@ -4,7 +4,7 @@
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <entity name="WritingPage" representedClassName="WritingPage" syncable="YES" codeGenerationType="class">
-        <attribute name="body" optional="YES" attributeType="String"/>
+        <attribute name="body" attributeType="String" defaultValueString="end me"/>
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="footer" optional="YES" attributeType="String"/>
         <attribute name="header" optional="YES" attributeType="String"/>
