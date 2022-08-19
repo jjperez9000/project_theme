@@ -3,4 +3,166 @@
    uuid = "C9D03E7C-7E8F-4FD3-8E37-3F0FFD9B854D"
    type = "1"
    version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "33F3B9B9-82DB-46F1-B5DE-608BEC388566"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project_theme/View/Goal/GoalPageView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "14"
+            endingLineNumber = "14"
+            landmarkName = "GoalPageView"
+            landmarkType = "14">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DD19BE7-F2FC-4D87-B624-ED7A5DCF6D14"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project_theme/View/Goal/GoalPageView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E61E0928-14FD-4395-BA5C-DA755F7B84DE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project_theme/View/Goal/GoalPageView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "body"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "E61E0928-14FD-4395-BA5C-DA755F7B84DE - d446105d189c93c0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 () -&gt; Swift.Optional&lt;SwiftUI.ForEach&lt;Swift.Array&lt;__C.NSObject&gt;, __C.NSObject, Swift.Optional&lt;SwiftUI.Text&gt;&gt;&gt; in project_theme.GoalPageView.body.getter : some"
+                  moduleName = "project_theme"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jjperez/Developer/project_theme/project_theme/View/Goal/GoalPageView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "17"
+                  endingLineNumber = "17"
+                  offsetFromSymbolStart = "924">
+               </Location>
+               <Location
+                  uuid = "E61E0928-14FD-4395-BA5C-DA755F7B84DE - 5294ef070c0140fd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSObject) -&gt; Swift.Optional&lt;SwiftUI.Text&gt; in closure #1 () -&gt; Swift.Optional&lt;SwiftUI.ForEach&lt;Swift.Array&lt;__C.NSObject&gt;, __C.NSObject, Swift.Optional&lt;SwiftUI.Text&gt;&gt;&gt; in project_theme.GoalPageView.body.getter : some"
+                  moduleName = "project_theme"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jjperez/Developer/project_theme/project_theme/View/Goal/GoalPageView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "18"
+                  endingLineNumber = "18"
+                  offsetFromSymbolStart = "88">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "2C810923-362B-4E75-A139-F9AFC4A56E6E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project_theme/View/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "100"
+            endingLineNumber = "100"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C642EBF7-3822-415E-932C-9DF1CE059E77"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project_theme/View/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "selectedGoalPage"
+            landmarkType = "24">
+            <Locations>
+               <Location
+                  uuid = "C642EBF7-3822-415E-932C-9DF1CE059E77 - d2d8e1b77c20fdf3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "project_theme.ContentView.selectedGoalPage.getter : Swift.Optional&lt;project_theme.GoalPage&gt;"
+                  moduleName = "project_theme"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jjperez/Developer/project_theme/project_theme/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "364">
+               </Location>
+               <Location
+                  uuid = "C642EBF7-3822-415E-932C-9DF1CE059E77 - 9634c7d4a5c0635c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (project_theme.GoalPage) -&gt; Swift.Bool in project_theme.ContentView.selectedGoalPage.getter : Swift.Optional&lt;project_theme.GoalPage&gt;"
+                  moduleName = "project_theme"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/jjperez/Developer/project_theme/project_theme/View/ContentView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "980">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4AB86BE8-D97F-4BA8-BC36-FF32A5CD0CD8"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "project_theme/View/ContentView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "body"
+            landmarkType = "24">
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
 </Bucket>

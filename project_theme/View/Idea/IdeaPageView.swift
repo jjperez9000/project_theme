@@ -9,6 +9,8 @@
 import SwiftUI
 
 struct IdeaPageView: View {
+    //view for displaying an individual idea page
+    //mostly just a simple text editor 
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var page: IdeaPage
     
@@ -27,7 +29,27 @@ struct IdeaPageView: View {
             .padding(10)
             .lineLimit(200)
             .border(.black)
-        
+            .toolbar {
+                ToolbarItem {
+                    Button(action: addIdeaPage) {
+                        Label("Add Item", systemImage: "square.and.pencil")
+                    }
+                }
+            }
+    }
+    private func addIdeaPage() {
+        withAnimation {
+            let newPage = IdeaPage(context: viewContext)
+            newPage.id = UUID()
+            newPage.date = Date()
+            newPage.body = ""
+            do  {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
     }
 }
 

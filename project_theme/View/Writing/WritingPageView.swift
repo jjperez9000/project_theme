@@ -102,6 +102,13 @@ struct WritingPageView: View {
         }
         .padding(20)
         .background(.white)
+        .toolbar {
+            ToolbarItem {
+                Button(action: addWritingPage) {
+                    Label("Add Item", systemImage: "square.and.pencil")
+                }
+            }
+        }
         
     }
     func setName(from body: String) {
@@ -112,6 +119,28 @@ struct WritingPageView: View {
             page.body = "new page"
         }
     }
+    private func addWritingPage() {
+        withAnimation {
+            let newPage = WritingPage(context: viewContext)
+            newPage.id = UUID()
+            newPage.date = Date()
+            newPage.header = ""
+            newPage.body = ""
+            newPage.top1 = ""
+            newPage.top2 = ""
+            newPage.footer = ""
+            do  {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+        }
+    }
+    private func updatePages() {
+        
+    }
+
 }
 
 extension Binding {

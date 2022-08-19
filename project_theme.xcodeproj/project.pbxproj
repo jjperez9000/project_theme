@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4926F39628AFFFB7001146BB /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4926F39528AFFFB7001146BB /* ResultView.swift */; };
 		4929BD7B28A6DF42000922F9 /* WritingMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4929BD7A28A6DF42000922F9 /* WritingMenuView.swift */; };
 		4929BD7E28A6DFEB000922F9 /* IdeaPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4929BD7D28A6DFEB000922F9 /* IdeaPageView.swift */; };
 		4929BD8028A6DFF4000922F9 /* IdeaMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4929BD7F28A6DFF4000922F9 /* IdeaMenuView.swift */; };
@@ -20,13 +21,16 @@
 		4975D36C2895F368000265A2 /* StaticThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975D36B2895F368000265A2 /* StaticThemeView.swift */; };
 		4975D37028960408000265A2 /* Store.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975D36F28960408000265A2 /* Store.swift */; };
 		4982298C28A6E10500883BBE /* project_theme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4982298A28A6E10500883BBE /* project_theme.xcdatamodeld */; };
+		49824E8F28AACE9B00195614 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49824E8E28AACE9B00195614 /* GoalView.swift */; };
 		4997293928A6EAD60099D0A9 /* GoalMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997293828A6EAD60099D0A9 /* GoalMenuView.swift */; };
 		4997293B28A6EAE10099D0A9 /* GoalPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997293A28A6EAE10099D0A9 /* GoalPageView.swift */; };
+		4997293D28A99EDA0099D0A9 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997293C28A99EDA0099D0A9 /* Extentions.swift */; };
 		49C04D1028A5762600459485 /* WritingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C04D0F28A5762600459485 /* WritingPageView.swift */; };
 		49C4838028974AC500D87527 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C4837F28974AC500D87527 /* Theme.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4926F39528AFFFB7001146BB /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
 		4929BD7A28A6DF42000922F9 /* WritingMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingMenuView.swift; sourceTree = "<group>"; };
 		4929BD7D28A6DFEB000922F9 /* IdeaPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaPageView.swift; sourceTree = "<group>"; };
 		4929BD7F28A6DFF4000922F9 /* IdeaMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdeaMenuView.swift; sourceTree = "<group>"; };
@@ -42,8 +46,10 @@
 		4975D36B2895F368000265A2 /* StaticThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticThemeView.swift; sourceTree = "<group>"; };
 		4975D36F28960408000265A2 /* Store.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Store.swift; sourceTree = "<group>"; };
 		4982298B28A6E10500883BBE /* project_theme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = project_theme.xcdatamodel; sourceTree = "<group>"; };
+		49824E8E28AACE9B00195614 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
 		4997293828A6EAD60099D0A9 /* GoalMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalMenuView.swift; sourceTree = "<group>"; };
 		4997293A28A6EAE10099D0A9 /* GoalPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalPageView.swift; sourceTree = "<group>"; };
+		4997293C28A99EDA0099D0A9 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		49C04D0F28A5762600459485 /* WritingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingPageView.swift; sourceTree = "<group>"; };
 		49C4837F28974AC500D87527 /* Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,8 +68,10 @@
 		491DEEBA28A162C30006B5B1 /* Goal */ = {
 			isa = PBXGroup;
 			children = (
-				4997293828A6EAD60099D0A9 /* GoalMenuView.swift */,
 				4997293A28A6EAE10099D0A9 /* GoalPageView.swift */,
+				4997293828A6EAD60099D0A9 /* GoalMenuView.swift */,
+				49824E8E28AACE9B00195614 /* GoalView.swift */,
+				4926F39528AFFFB7001146BB /* ResultView.swift */,
 			);
 			path = Goal;
 			sourceTree = "<group>";
@@ -95,6 +103,7 @@
 				494ED5A628A5593E00073342 /* Persistence.swift */,
 				4975D36F28960408000265A2 /* Store.swift */,
 				49C4837F28974AC500D87527 /* Theme.swift */,
+				4997293C28A99EDA0099D0A9 /* Extentions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -227,6 +236,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4997293928A6EAD60099D0A9 /* GoalMenuView.swift in Sources */,
+				49824E8F28AACE9B00195614 /* GoalView.swift in Sources */,
 				49C4838028974AC500D87527 /* Theme.swift in Sources */,
 				4975D37028960408000265A2 /* Store.swift in Sources */,
 				496439EB2894974100FD962A /* ContentView.swift in Sources */,
@@ -236,8 +246,10 @@
 				496439E92894974100FD962A /* project_themeApp.swift in Sources */,
 				4997293B28A6EAE10099D0A9 /* GoalPageView.swift in Sources */,
 				49C04D1028A5762600459485 /* WritingPageView.swift in Sources */,
+				4926F39628AFFFB7001146BB /* ResultView.swift in Sources */,
 				494ED5A728A5593E00073342 /* Persistence.swift in Sources */,
 				496439FD289497F100FD962A /* ThemeView.swift in Sources */,
+				4997293D28A99EDA0099D0A9 /* Extentions.swift in Sources */,
 				4975D36A2895F231000265A2 /* EditThemeView.swift in Sources */,
 				4929BD7E28A6DFEB000922F9 /* IdeaPageView.swift in Sources */,
 				4975D36C2895F368000265A2 /* StaticThemeView.swift in Sources */,

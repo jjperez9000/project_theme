@@ -27,40 +27,13 @@ struct WritingMenuView: View {
                     }
             }
             .onDelete(perform: deletePages)
-        }.toolbar {
-            ToolbarItem {
-                Button(action: addPage) {
-                    Label("Add Item", systemImage: "square.and.pencil")
-                }
-            }
         }
-    }
-    private func getHeader(title: String) -> String {
-        return title != "" ? title : "new page"
     }
     private func deletePages(offsets: IndexSet) {
         withAnimation {
             offsets.map {pages[$0]}.forEach(viewContext.delete)
 //            pages.forEach(viewContext.delete) // delete all pages
             do {
-                try viewContext.save()
-            } catch {
-                let nsError = error as NSError
-                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-            }
-        }
-    }
-    private func addPage() {
-        withAnimation {
-            let newPage = WritingPage(context: viewContext)
-            newPage.id = UUID()
-            newPage.date = Date()
-            newPage.header = ""
-            newPage.body = ""
-            newPage.top1 = ""
-            newPage.top2 = ""
-            newPage.footer = ""
-            do  {
                 try viewContext.save()
             } catch {
                 let nsError = error as NSError
