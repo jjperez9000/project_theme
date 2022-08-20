@@ -1,6 +1,9 @@
 # project_theme
 
-This is a WIP application based around [this](https://www.themesystem.com) idea by CGP Grey and Myke Hurley.
+This is a an application based around [this](https://www.themesystem.com) idea by CGP Grey and Myke Hurley.
 
-It's purpose will be to have the same use and section types as the notebook itself does, it will just also be on my computer 
-so that I don't have to use a pen, since I like the concept, I just despise writing with a pen. 
+Its purpose is for all around journaling and life tracking. It's got all of the same page types that are used by the theme system journal (goals, general writing, and idea sketching). 
+
+I'ts implemented entirely in Swift using Core Data as the means of storing all of the user's information. 
+
+Here's a video of the app in action: [https://www.youtube.com/watch?v=tvn1ptncd2k](https://www.youtube.com/watch?v=tvn1ptncd2k)
