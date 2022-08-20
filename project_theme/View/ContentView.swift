@@ -19,7 +19,7 @@ enum Destination: Hashable {
 struct ContentView: View {
     //general information
     @Environment(\.managedObjectContext) private var viewContext
-    @EnvironmentObject var database: Store
+    
     @State private var sidebarDestination: Destination = .goal
     @State private var navVisibility: NavigationSplitViewVisibility = .all
     
@@ -70,7 +70,10 @@ struct ContentView: View {
         return selectedPage
     }
 
-    
+    //theme data
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(keyPath: \CdTheme.title, ascending: true)],
+                  animation: .default)
+    private var theme: FetchedResults<CdTheme>
     
     var body: some View {
         //main navigation view for application
@@ -93,23 +96,42 @@ struct ContentView: View {
                 if let page = selectedWritingPage {
                     WritingPageView(page: page)
                 } else {
-                    ThemeView(sidebarDestination: $sidebarDestination)
+                    ThemeView(sidebarDestination: $sidebarDestination, theme: theme.first ?? initTheme())
                 }
             case .goal:
                 if ((selectedGoalPage ?? nil) != nil) {
                     GoalPageView(page: selectedGoalPage!)
                 } else {
-                    ThemeView(sidebarDestination: $sidebarDestination)
+                    ThemeView(sidebarDestination: $sidebarDestination, theme: theme.first ?? initTheme())
                 }
             case .idea:
                 if let page = selectedIdeaPage {
                     IdeaPageView(page: page)
                 } else {
-                    ThemeView(sidebarDestination: $sidebarDestination)
+                    ThemeView(sidebarDestination: $sidebarDestination, theme: theme.first ?? initTheme())
                 }
             }
 
         }
+    }
+    
+    private func addTheme() {
+        withAnimation {
+            let newTheme = CdTheme(context: viewContext)
+            newTheme.title = ""
+            newTheme.summary = ""
+            do  {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
+            
+        }
+    }
+    private func initTheme() -> CdTheme {
+        addTheme()
+        return theme.first!
     }
 }
 

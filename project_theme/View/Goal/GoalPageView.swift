@@ -14,11 +14,10 @@ struct GoalPageView: View {
     
     var body: some View {
         List {
-            if let mygoals = page.goals {
-                ForEach(Array(mygoals as Set), id: \.self) { goal in
-                    if let mygoal = goal as? Goal {
-                        GoalView(goal: mygoal)
-                    }
+            if page.goals != nil {
+                ForEach(getSortedGoals(), id: \.self) { goal in
+                    GoalView(goal: goal)
+                        .padding(.top, 10)
                 }
             }
         }.toolbar {
@@ -41,8 +40,8 @@ struct GoalPageView: View {
         newPage.name = "my page"
         
         let goal = Goal(context: viewContext)
-        goal.title = String(Int.random(in: 0..<100))
-        goal.id = UUID()
+        goal.title = ""
+        goal.date = Date()
         newPage.addToGoals(goal)
          
         for i in 1...7 {
@@ -61,8 +60,9 @@ struct GoalPageView: View {
     }
     private func addGoal() {
         let goal = Goal(context: viewContext)
-        goal.title = String(Int.random(in: 0..<100))
-        goal.id = UUID()
+        goal.title = ""
+        
+        goal.date = Date()
         page.addToGoals(goal)
          
         for i in 1...7 {
@@ -78,5 +78,14 @@ struct GoalPageView: View {
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
+    }
+    private func getSortedGoals() -> [Goal] {
+        return (page.goals as! Set<Goal>).sorted(by: {$0.date! < $1.date!})
+    }
+}
+
+struct GoalPageHeader: View {
+    var body: some View {
+        Text("lmao")
     }
 }

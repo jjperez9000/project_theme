@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct StaticThemeView: View {
+    @Environment(\.managedObjectContext) private var viewContext
     
-    @EnvironmentObject var themeVM: Store
-    
+    @ObservedObject var theme: CdTheme
     var body: some View {
         VStack {
             LogoView()
             Text("theme")
                 .font(.callout)
                 .padding(.top)
-            Text(themeVM.theme.theme)
+            Text(theme.title ?? "")
                 .font(.title)
                 .frame(width: 540, height: 40)
                 .padding(20)
@@ -25,7 +25,7 @@ struct StaticThemeView: View {
             Text("description")
                 .font(.callout)
                 .padding(.top)
-            Text(themeVM.theme.description)
+            Text(theme.summary ?? "")
                 .font(.title2)
                 .frame(width: 540)
                 .padding(20.0)
@@ -34,20 +34,19 @@ struct StaticThemeView: View {
             Text("ideal outcomes")
                 .font(.callout)
                 .padding(.top)
-            ForEach(themeVM.theme.outcomes) { outcome in
-                Text(outcome)
-                    .frame(width: 540)
-                    .padding(20.0)
-                    .border(.black)
-                    .lineLimit(3)
+            if theme.outcomes != nil {
+                ForEach(getSortedOutcomes(), id: \.self) { outcome in
+                    Text(outcome.body ?? "")
+                        .frame(width: 540)
+                        .padding(20.0)
+                        .border(.black)
+                        .lineLimit(3)
+                }
             }
         }
         
     }
-}
-
-struct StaticThemeView_Previews: PreviewProvider {
-    static var previews: some View {
-        StaticThemeView()
+    private func getSortedOutcomes() -> [Outcome] {
+        return (theme.outcomes as! Set<Outcome>).sorted(by: {$0.date! < $1.date!})
     }
 }

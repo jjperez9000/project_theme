@@ -12,11 +12,13 @@ struct ThemeView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @State var locked: Bool = true
     @Binding var sidebarDestination: Destination
-    @EnvironmentObject var themeVM: Store
+    
+    @ObservedObject var theme: CdTheme
+    
     
     var body: some View {
         if (locked) {
-            StaticThemeView()
+            StaticThemeView(theme: theme)
                 .toolbar {
                     ToolbarItem {
                         Button(action: toggleLock) {
@@ -31,7 +33,7 @@ struct ThemeView: View {
                 }
             
         } else {
-            EditThemeView()
+            EditThemeView(theme: theme)
                 .toolbar {
                     ToolbarItem {
                         Button(action: toggleLock) {
@@ -49,8 +51,13 @@ struct ThemeView: View {
     }
     private func toggleLock() {
         if (!locked) {
-            themeVM.save()
-            UserDefaults.standard.set(try? PropertyListEncoder().encode(themeVM.theme), forKey:"theme")
+            
+            do  {
+                try viewContext.save()
+            } catch {
+                let nsError = error as NSError
+                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            }
         }
         locked.toggle()
     }
@@ -103,8 +110,9 @@ struct ThemeView: View {
         newPage.name = "my page"
         
         let goal = Goal(context: viewContext)
-        goal.title = String(Int.random(in: 0..<100))
-        goal.id = UUID()
+        goal.title = ""
+        
+        goal.date = Date()
         newPage.addToGoals(goal)
          
         for i in 1...7 {
@@ -119,14 +127,6 @@ struct ThemeView: View {
         } catch {
             let nsError = error as NSError
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
-    }
-}
-
-struct ThemeView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            ThemeView(sidebarDestination: .constant(.writing))
         }
     }
 }

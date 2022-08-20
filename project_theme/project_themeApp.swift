@@ -18,7 +18,6 @@ struct project_themeApp: App {
                     NSWindow.allowsAutomaticWindowTabbing = false
                 }
                 .frame(minWidth: 605)
-                .environmentObject(Store())
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
             
         }.commands {
@@ -26,3 +25,9 @@ struct project_themeApp: App {
         }
     }
 }
+
+//TODO: have button to add / remove ideal outcomes
+//Add Dates to goal page
+//add art to goal page
+//add duplicate button for goal page
+//add theme archive

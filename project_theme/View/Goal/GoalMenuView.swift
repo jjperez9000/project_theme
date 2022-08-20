@@ -18,7 +18,7 @@ struct GoalMenuView: View {
     var body: some View {
         List(selection: $selectedGoalPageId) {
             ForEach(pages) {page in
-                Text(page.date!.formatted(date: .numeric, time: .omitted) + "  |  " + getHeader(title: page.name!) )
+                Text(page.date!.previous(.monday).formatted(date: .numeric, time: .omitted) + " - " + page.date!.next(.sunday).formatted(date: .numeric, time: .omitted))
                     .contextMenu {
                         Button("delete page") {
                             if pages.firstIndex(of: page) != nil {
