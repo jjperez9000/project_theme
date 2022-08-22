@@ -20,12 +20,12 @@
 		496439FD289497F100FD962A /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 496439FC289497F100FD962A /* ThemeView.swift */; };
 		4975D36A2895F231000265A2 /* EditThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975D3692895F231000265A2 /* EditThemeView.swift */; };
 		4975D36C2895F368000265A2 /* StaticThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4975D36B2895F368000265A2 /* StaticThemeView.swift */; };
-		4982298C28A6E10500883BBE /* project_theme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4982298A28A6E10500883BBE /* project_theme.xcdatamodeld */; };
 		49824E8F28AACE9B00195614 /* GoalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49824E8E28AACE9B00195614 /* GoalView.swift */; };
 		4997293928A6EAD60099D0A9 /* GoalMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997293828A6EAD60099D0A9 /* GoalMenuView.swift */; };
 		4997293B28A6EAE10099D0A9 /* GoalPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997293A28A6EAE10099D0A9 /* GoalPageView.swift */; };
 		4997293D28A99EDA0099D0A9 /* Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4997293C28A99EDA0099D0A9 /* Extentions.swift */; };
 		49C04D1028A5762600459485 /* WritingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C04D0F28A5762600459485 /* WritingPageView.swift */; };
+		49CB985D28B3FCA9009E46CB /* project_theme.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 49CB985B28B3FCA9009E46CB /* project_theme.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,12 +44,12 @@
 		496439FC289497F100FD962A /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
 		4975D3692895F231000265A2 /* EditThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditThemeView.swift; sourceTree = "<group>"; };
 		4975D36B2895F368000265A2 /* StaticThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaticThemeView.swift; sourceTree = "<group>"; };
-		4982298B28A6E10500883BBE /* project_theme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = project_theme.xcdatamodel; sourceTree = "<group>"; };
 		49824E8E28AACE9B00195614 /* GoalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalView.swift; sourceTree = "<group>"; };
 		4997293828A6EAD60099D0A9 /* GoalMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalMenuView.swift; sourceTree = "<group>"; };
 		4997293A28A6EAE10099D0A9 /* GoalPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalPageView.swift; sourceTree = "<group>"; };
 		4997293C28A99EDA0099D0A9 /* Extentions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extentions.swift; sourceTree = "<group>"; };
 		49C04D0F28A5762600459485 /* WritingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingPageView.swift; sourceTree = "<group>"; };
+		49CB985C28B3FCA9009E46CB /* project_theme.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = project_theme.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,7 +127,7 @@
 				49417CCA2895CF91007EA08F /* Model */,
 				49417CC92895CF76007EA08F /* View */,
 				496439EC2894974100FD962A /* Assets.xcassets */,
-				4982298A28A6E10500883BBE /* project_theme.xcdatamodeld */,
+				49CB985B28B3FCA9009E46CB /* project_theme.xcdatamodeld */,
 				496439F62894974100FD962A /* project_theme.entitlements */,
 				496439EE2894974100FD962A /* Preview Content */,
 			);
@@ -237,7 +237,6 @@
 				496439EB2894974100FD962A /* ContentView.swift in Sources */,
 				4929BD7B28A6DF42000922F9 /* WritingMenuView.swift in Sources */,
 				4929BD8028A6DFF4000922F9 /* IdeaMenuView.swift in Sources */,
-				4982298C28A6E10500883BBE /* project_theme.xcdatamodeld in Sources */,
 				496439E92894974100FD962A /* project_themeApp.swift in Sources */,
 				4997293B28A6EAE10099D0A9 /* GoalPageView.swift in Sources */,
 				49C04D1028A5762600459485 /* WritingPageView.swift in Sources */,
@@ -247,6 +246,7 @@
 				496439FD289497F100FD962A /* ThemeView.swift in Sources */,
 				4997293D28A99EDA0099D0A9 /* Extentions.swift in Sources */,
 				4975D36A2895F231000265A2 /* EditThemeView.swift in Sources */,
+				49CB985D28B3FCA9009E46CB /* project_theme.xcdatamodeld in Sources */,
 				4929BD7E28A6DFEB000922F9 /* IdeaPageView.swift in Sources */,
 				4975D36C2895F368000265A2 /* StaticThemeView.swift in Sources */,
 			);
@@ -454,14 +454,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		4982298A28A6E10500883BBE /* project_theme.xcdatamodeld */ = {
+		49CB985B28B3FCA9009E46CB /* project_theme.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				4982298B28A6E10500883BBE /* project_theme.xcdatamodel */,
+				49CB985C28B3FCA9009E46CB /* project_theme.xcdatamodel */,
 			);
-			currentVersion = 4982298B28A6E10500883BBE /* project_theme.xcdatamodel */;
-			name = project_theme.xcdatamodeld;
-			path = ../../temp/project_theme.xcdatamodeld;
+			currentVersion = 49CB985C28B3FCA9009E46CB /* project_theme.xcdatamodel */;
+			path = project_theme.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

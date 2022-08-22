@@ -1,7 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21277" systemVersion="22A5321d" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
-        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    <entity name="CdTheme" representedClassName="CdTheme" syncable="YES" codeGenerationType="class">
+        <attribute name="summary" optional="YES" attributeType="String"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="outcomes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Outcome" inverseName="theme" inverseEntity="Outcome"/>
+    </entity>
+    <entity name="Goal" representedClassName="Goal" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="title" optional="YES" attributeType="String"/>
+        <relationship name="goalpage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="GoalPage" inverseName="goals" inverseEntity="GoalPage"/>
+        <relationship name="results" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Result" inverseName="goal" inverseEntity="Result"/>
+    </entity>
+    <entity name="GoalPage" representedClassName="GoalPage" syncable="YES" codeGenerationType="class">
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" optional="YES" attributeType="String"/>
+        <relationship name="goals" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="goalpage" inverseEntity="Goal"/>
+    </entity>
+    <entity name="IdeaPage" representedClassName="IdeaPage" syncable="YES" codeGenerationType="class">
+        <attribute name="body" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="id" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Outcome" representedClassName="Outcome" syncable="YES" codeGenerationType="class">
+        <attribute name="body" optional="YES" attributeType="String"/>
+        <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <relationship name="theme" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="CdTheme" inverseName="outcomes" inverseEntity="CdTheme"/>
+    </entity>
+    <entity name="Result" representedClassName="Result" syncable="YES" codeGenerationType="class">
+        <attribute name="number" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="success" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="goal" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Goal" inverseName="results" inverseEntity="Goal"/>
     </entity>
     <entity name="WritingPage" representedClassName="WritingPage" syncable="YES" codeGenerationType="class">
         <attribute name="body" attributeType="String" defaultValueString="end me"/>
